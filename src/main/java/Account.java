@@ -3,7 +3,8 @@ import javax.persistence.*;
 @IdClass(AccountId.class)
 @Table(name = "accounts")
 public class Account {
-
+    @EmbeddedId
+    private AccountId accountKey;
     @Id
     private String accountNumber;
 
@@ -24,5 +25,13 @@ public class Account {
 
     public void setAccountType(String accountType) {
         this.accountType = accountType;
+    }
+
+    public AccountId getAccountId() {
+        return accountId;
+    }
+
+    public void setAccountId(AccountId accountId) {
+        this.accountId = accountId;
     }
 }
